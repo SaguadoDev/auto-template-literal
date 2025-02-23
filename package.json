@@ -9,13 +9,16 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished",
+    "onSaveTextDocument"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "auto-template-literal.helloWorld",
-        "title": "Hello World"
+        "command": "auto-template-literal.convertToTemplateLiteral",
+        "title": "Convert to Template Literal"
       }
     ]
   },
