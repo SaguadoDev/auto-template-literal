@@ -15,13 +15,26 @@ export function activate(context: vscode.ExtensionContext) {
         document.positionAt(0),
         document.positionAt(fullText.length)
       );
-      editor.edit((editBuilder) => {
-        editBuilder.replace(fullRange, updatedText);
-      });
+
+      editor
+        .edit((editBuilder) => {
+          editBuilder.replace(fullRange, updatedText);
+        })
+        .then(() => {
+          vscode.window.showInformationMessage('Strings converted to template literals!');
+        });
     }
   };
 
   const disposable = vscode.workspace.onDidSaveTextDocument((document) => {
+    const config = vscode.workspace.getConfiguration('autoTemplateLiteral');
+    const isEnabled = config.get<boolean>('enable', true);
+
+    if (!isEnabled) {
+      console.log('Conversión desactivada por configuración.');
+      return;
+    }
+
     const editor = vscode.window.activeTextEditor;
     if (!editor || editor.document !== document) {
       return;
