@@ -42,7 +42,3 @@ You can enable or disable the automatic conversion feature in the settings.
 ## Contributing
 
 If you find any issues or have suggestions for new features, please open an issue or submit a pull request on [GitHub](https://github.com/SaguadoDev/auto-template-literal).
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
